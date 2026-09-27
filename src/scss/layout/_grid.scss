@@ -1,0 +1,28 @@
+// ==========================================================================
+// GRID DE PERSONAJES
+// ==========================================================================
+@use '../abstracts/variables' as var;
+@use '../abstracts/mixins' as mx;
+
+.main-content {
+  padding-bottom: 3rem;
+  min-height: 450px;
+}
+
+.characters-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+
+  @include mx.breakpoint(tablet) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include mx.breakpoint(desktop) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include mx.breakpoint(desktop-wide) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

@@ -1,0 +1,60 @@
+// ==========================================================================
+// VARIABLES DEL SISTEMA DE DISEÑO: RICK AND MORTY EXPLORER
+// ==========================================================================
+// Este archivo centraliza los tokens de diseño de la aplicación.
+// Los valores aquí definidos aseguran coherencia visual en todo el proyecto.
+
+// --------------------------------------------------------------------------
+// 1. Tipografías
+// --------------------------------------------------------------------------
+// Utilizamos fuentes modernas del sistema respaldadas por Google Fonts (Inter / Outfit)
+$font-family-base: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+$font-family-display: 'Orbitron', 'Inter', system-ui, sans-serif; // Estética Sci-Fi para encabezados
+
+// --------------------------------------------------------------------------
+// 2. Paleta de Colores Oficial / Temática
+// --------------------------------------------------------------------------
+// Colores Cósmicos de Fondo
+$color-bg-deep: #0f111a;        // Fondo más profundo (espacio exterior)
+$color-bg-surface: #181b26;     // Superficie principal de la aplicación
+$color-bg-card: #202433;        // Fondo de las tarjetas de personajes y modales
+$color-bg-card-hover: #272c3d;  // Estado hover para tarjetas y contenedores interactivos
+
+// Acentos Temáticos "Portal & Multiverse"
+$color-portal-green: #97ce4c;   // Verde característico del portal de Rick
+$color-portal-glow: #39ff14;    // Brillo fluorescente para estados activos
+$color-portal-cyan: #00b5cc;    // Cian espacial para contrastes y enlaces secundarios
+$color-portal-purple: #9d4edd;  // Púrpura dimensional para elementos destacados
+
+// Colores Semánticos para el Estado de los Personajes
+$color-status-alive: #55cc44;   // Verde para personajes vivos
+$color-status-dead: #d63d2e;    // Rojo para personajes fallecidos
+$color-status-unknown: #9e9e9e; // Gris para personajes con estado desconocido
+$color-favorite-gold: #ffc107;  // Dorado para marcar favoritos
+
+// Tipografía y Textos
+$color-text-primary: #f5f6fa;   // Texto principal de alto contraste
+$color-text-secondary: #9aa0a6; // Texto secundario para metadata (especie, origen)
+$color-text-muted: #6b7280;     // Texto atenuado para leyendas y placeholders
+$color-border: rgba(255, 255, 255, 0.08); // Bordes sutiles para elementos elevados
+
+// --------------------------------------------------------------------------
+// 3. Sombras y Efectos "Sci-Fi Glow"
+// --------------------------------------------------------------------------
+$shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
+$shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+$shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+$glow-portal: 0 0 15px rgba(151, 206, 76, 0.35);
+$glow-portal-strong: 0 0 25px rgba(151, 206, 76, 0.6);
+$glow-cyan: 0 0 15px rgba(0, 181, 204, 0.4);
+
+// --------------------------------------------------------------------------
+// 4. Bordes y Espaciados
+// --------------------------------------------------------------------------
+$border-radius-sm: 6px;
+$border-radius-md: 12px;
+$border-radius-lg: 18px;
+$border-radius-full: 9999px;
+
+// Transición global suave
+$transition-default: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);

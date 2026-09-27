@@ -1,0 +1,139 @@
+// ==========================================================================
+// SECCIÓN DE CONTROLES: BÚSQUEDA Y FILTROS
+// ==========================================================================
+@use '../abstracts/variables' as var;
+@use '../abstracts/mixins' as mx;
+
+.controls-section {
+  padding: 2rem 0 1.5rem;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    background: var.$color-bg-surface;
+    padding: 1.25rem;
+    border-radius: var.$border-radius-lg;
+    border: 1px solid var.$color-border;
+    box-shadow: var.$shadow-md;
+
+    @include mx.breakpoint(desktop) {
+      padding: 1.5rem;
+    }
+  }
+
+  // Barra de búsqueda con icono
+  &__search-box {
+    position: relative;
+    width: 100%;
+
+    svg {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 20px;
+      color: var.$color-text-muted;
+      pointer-events: none;
+      transition: var.$transition-default;
+    }
+
+    input[type='search'] {
+      width: 100%;
+      padding: 0.85rem 1rem 0.85rem 3rem;
+      background: var.$color-bg-card;
+      border: 1px solid var.$color-border;
+      border-radius: var.$border-radius-md;
+      color: var.$color-text-primary;
+      font-size: 0.95rem;
+      transition: var.$transition-default;
+
+      &::placeholder {
+        color: var.$color-text-muted;
+      }
+
+      &:focus {
+        outline: none;
+        border-color: var.$color-portal-green;
+        box-shadow: var.$glow-portal;
+
+        + svg {
+          color: var.$color-portal-green;
+        }
+      }
+    }
+  }
+
+  // Fila de filtros y selector de favoritos
+  &__filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+
+    &-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      flex: 1;
+      min-width: 260px;
+    }
+
+    // Selectores dropdown
+    select {
+      flex: 1;
+      min-width: 140px;
+      padding: 0.75rem 1rem;
+      background: var.$color-bg-card;
+      border: 1px solid var.$color-border;
+      border-radius: var.$border-radius-md;
+      color: var.$color-text-primary;
+      cursor: pointer;
+      transition: var.$transition-default;
+
+      &:focus {
+        outline: none;
+        border-color: var.$color-portal-cyan;
+        box-shadow: var.$glow-cyan;
+      }
+
+      option {
+        background: var.$color-bg-surface;
+        color: var.$color-text-primary;
+      }
+    }
+  }
+
+  // Pestañas / Toggle Todos vs Favoritos
+  &__tabs {
+    display: flex;
+    background: var.$color-bg-card;
+    padding: 0.25rem;
+    border-radius: var.$border-radius-md;
+    border: 1px solid var.$color-border;
+
+    .tab-btn {
+      padding: 0.5rem 1rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var.$color-text-secondary;
+      border-radius: var.$border-radius-sm;
+      transition: var.$transition-default;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+
+      &--active {
+        background: var.$color-portal-green;
+        color: var.$color-bg-deep;
+        box-shadow: var.$shadow-sm;
+      }
+
+      &:hover:not(&--active) {
+        color: var.$color-text-primary;
+      }
+    }
+  }
+}

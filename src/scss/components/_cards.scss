@@ -1,0 +1,141 @@
+// ==========================================================================
+// TARJETAS DE PERSONAJES
+// ==========================================================================
+@use '../abstracts/variables' as var;
+@use '../abstracts/mixins' as mx;
+
+.character-card {
+  background: var.$color-bg-card;
+  border: 1px solid var.$color-border;
+  border-radius: var.$border-radius-lg;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var.$shadow-md;
+  transition: var.$transition-default;
+  position: relative;
+
+  &:hover {
+    transform: translateY(-6px);
+    border-color: rgba(151, 206, 76, 0.4);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.6), var.$glow-portal;
+
+    .character-card__image {
+      transform: scale(1.05);
+    }
+  }
+
+  // Contenedor de la Imagen
+  &__media {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background: #141721;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  // Botón de Favorito Flotante
+  &__fav-btn {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    z-index: 2;
+  }
+
+  // Cuerpo de la tarjeta
+  &__body {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 0.75rem;
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  &__name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var.$color-text-primary;
+    @include mx.truncate-text;
+  }
+
+  // Badge de Estado (Alive, Dead, Unknown)
+  &__status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var.$color-text-secondary;
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+
+      &--alive {
+        background-color: var.$color-status-alive;
+        box-shadow: 0 0 8px var.$color-status-alive;
+      }
+
+      &--dead {
+        background-color: var.$color-status-dead;
+        box-shadow: 0 0 8px var.$color-status-dead;
+      }
+
+      &--unknown {
+        background-color: var.$color-status-unknown;
+      }
+    }
+  }
+
+  // Metadatos adicionales (origen y especie)
+  &__meta {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var.$color-border;
+
+    &-item {
+      display: flex;
+      flex-direction: column;
+
+      span.label {
+        color: var.$color-text-muted;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      span.value {
+        color: var.$color-text-secondary;
+        font-weight: 500;
+        @include mx.truncate-text;
+      }
+    }
+  }
+
+  // Pie con botón de detalles
+  &__footer {
+    margin-top: 0.75rem;
+
+    .btn {
+      width: 100%;
+    }
+  }
+}

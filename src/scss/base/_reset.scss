@@ -1,0 +1,122 @@
+// ==========================================================================
+// RESET Y ESTILOS BASE GLOBALES
+// ==========================================================================
+@use '../abstracts/variables' as var;
+
+// Reset global de márgenes y modelo de caja
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// Estructura HTML y Body
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var.$color-bg-deep;
+  color: var.$color-text-primary;
+  font-family: var.$font-family-base;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  background-image: 
+    radial-gradient(circle at 15% 15%, rgba(151, 206, 76, 0.05) 0%, transparent 40%),
+    radial-gradient(circle at 85% 85%, rgba(0, 181, 204, 0.05) 0%, transparent 40%);
+  background-attachment: fixed;
+}
+
+// Reset de imágenes para evitar desbordes
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+// Reset de botones
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+// Reset de inputs y selects
+input,
+select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+// Accesibilidad: Indicador de foco visible para navegación por teclado (WCAG 2.4.7)
+:focus-visible {
+  outline: 2px solid var.$color-portal-cyan;
+  outline-offset: 3px;
+  border-radius: var.$border-radius-sm;
+}
+
+// Scrollbar personalizada temática
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var.$color-bg-deep;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2b3245;
+  border-radius: var.$border-radius-full;
+
+  &:hover {
+    background: var.$color-portal-green;
+  }
+}
+
+// ==========================================================================
+// UTILIDADES DE ACCESIBILIDAD (WCAG 2.1 AA)
+// ==========================================================================
+
+// .visually-hidden — Oculta visualmente un elemento SIN sacarlo del árbol de
+// accesibilidad. Los lectores de pantalla siguen anunciándolo. Úsese para
+// regiones `aria-live` que anuncian conteos de resultados en tiempo real.
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+// .skip-link — Enlace «Saltar al contenido principal» (WCAG 2.4.1).
+// Es el primer elemento tabulable de la página. Permanece invisible hasta
+// recibir el foco con la tecla Tab, momento en que se muestra con alto
+// contraste para orientar a usuarios de teclado y tecnologías de asistencia.
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 9999;
+  padding: 0.5rem 1rem;
+  background: var.$color-portal-green;
+  color: var.$color-bg-deep;
+  font-weight: 700;
+  border-radius: var.$border-radius-sm;
+  text-decoration: none;
+  transition: top 0.2s ease;
+
+  &:focus {
+    top: 1rem;
+  }
+}

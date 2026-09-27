@@ -1,0 +1,60 @@
+// ==========================================================================
+// CONTROLES DE PAGINACIÓN
+// ==========================================================================
+@use '../abstracts/variables' as var;
+@use '../abstracts/mixins' as mx;
+
+.pagination-section {
+  padding: 2.5rem 0 3.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: var.$color-bg-surface;
+    padding: 0.5rem 1rem;
+    border-radius: var.$border-radius-full;
+    border: 1px solid var.$color-border;
+    box-shadow: var.$shadow-md;
+  }
+
+  &__info {
+    font-size: 0.9rem;
+    color: var.$color-text-secondary;
+    font-weight: 500;
+    padding: 0 0.5rem;
+
+    .current-page {
+      color: var.$color-portal-green;
+      font-weight: 700;
+    }
+  }
+
+  &__btn {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: var.$color-bg-card;
+    color: var.$color-text-primary;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var.$transition-default;
+    border: 1px solid var.$color-border;
+
+    &:hover:not(:disabled) {
+      background: var.$color-portal-green;
+      color: var.$color-bg-deep;
+      box-shadow: var.$glow-portal;
+      border-color: var.$color-portal-green;
+    }
+
+    &:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+  }
+}

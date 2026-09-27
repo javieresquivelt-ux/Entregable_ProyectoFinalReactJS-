@@ -1,0 +1,160 @@
+// ==========================================================================
+// MODAL DE DETALLES DEL PERSONAJE
+// ==========================================================================
+@use '../abstracts/variables' as var;
+@use '../abstracts/mixins' as mx;
+
+.modal {
+  border: none;
+  background: transparent;
+  padding: 1rem;
+  max-width: 650px;
+  width: 90%;
+  margin: auto;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+
+  // Backdrop nativo de HTML5 <dialog>
+  &::backdrop {
+    background: rgba(10, 12, 18, 0.8);
+    backdrop-filter: blur(8px);
+  }
+
+  // Contenido interno del modal
+  &__content {
+    background: var.$color-bg-card;
+    border: 1px solid rgba(151, 206, 76, 0.3);
+    border-radius: var.$border-radius-lg;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), var.$glow-portal;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    max-height: 85vh;
+    animation: modalIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  &__close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.5);
+    color: var.$color-text-primary;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    transition: var.$transition-default;
+    z-index: 10;
+
+    &:hover {
+      background: var.$color-status-dead;
+      transform: rotate(90deg);
+    }
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1.5rem 1rem;
+    text-align: center;
+    background: linear-gradient(180deg, rgba(151, 206, 76, 0.08) 0%, transparent 100%);
+
+    @include mx.breakpoint(tablet) {
+      flex-direction: row;
+      text-align: left;
+      gap: 1.5rem;
+    }
+  }
+
+  &__avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: var.$border-radius-md;
+    border: 3px solid var.$color-portal-green;
+    box-shadow: var.$glow-portal;
+    object-fit: cover;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    margin-top: 1rem;
+
+    @include mx.breakpoint(tablet) {
+      margin-top: 0;
+    }
+
+    h2 {
+      font-size: 1.75rem;
+      color: var.$color-text-primary;
+    }
+  }
+
+  &__body {
+    padding: 1.5rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  &__section-title {
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var.$color-portal-cyan;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  &__meta-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    border-radius: var.$border-radius-md;
+    border: 1px solid var.$color-border;
+  }
+
+  // Lista de badges de episodios
+  &__episodes-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    max-height: 160px;
+    overflow-y: auto;
+    padding: 0.5rem;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: var.$border-radius-md;
+    border: 1px solid var.$color-border;
+
+    .episode-badge {
+      font-size: 0.75rem;
+      padding: 0.25rem 0.6rem;
+      background: rgba(0, 181, 204, 0.15);
+      border: 1px solid rgba(0, 181, 204, 0.3);
+      color: var.$color-portal-cyan;
+      border-radius: var.$border-radius-sm;
+      font-weight: 600;
+    }
+  }
+}
+
+@keyframes modalIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}

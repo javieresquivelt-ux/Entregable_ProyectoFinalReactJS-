@@ -1,0 +1,56 @@
+// ==========================================================================
+// MIXINS REUTILIZABLES
+// ==========================================================================
+@use 'variables' as var;
+
+// --------------------------------------------------------------------------
+// 1. Breakpoints Responsivos (Mobile-First)
+// --------------------------------------------------------------------------
+// El diseño base parte de pantallas móviles y se amplía progresivamente.
+@mixin breakpoint($point) {
+  @if $point == tablet {
+    @media (min-width: 640px) {
+      @content;
+    }
+  } @else if $point == desktop {
+    @media (min-width: 1024px) {
+      @content;
+    }
+  } @else if $point == desktop-wide {
+    @media (min-width: 1280px) {
+      @content;
+    }
+  }
+}
+
+// --------------------------------------------------------------------------
+// 2. Helpers de Flexbox y Alineación
+// --------------------------------------------------------------------------
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+// --------------------------------------------------------------------------
+// 3. Efectos Visuales Temáticos (Portal Glow)
+// --------------------------------------------------------------------------
+@mixin portal-glow-hover {
+  transition: var.$transition-default;
+  &:hover {
+    border-color: var.$color-portal-green;
+    box-shadow: var.$glow-portal;
+  }
+}
+
+@mixin truncate-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

@@ -1,0 +1,92 @@
+// ==========================================================================
+// BOTONES Y ACCIONES
+// ==========================================================================
+@use '../abstracts/variables' as var;
+@use '../abstracts/mixins' as mx;
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.25rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: var.$border-radius-md;
+  transition: var.$transition-default;
+  text-decoration: none;
+  border: 1px solid transparent;
+
+  // Botón Primario: Verde Portal Glow
+  &--primary {
+    background-color: var.$color-portal-green;
+    color: var.$color-bg-deep;
+    font-weight: 700;
+
+    &:hover {
+      background-color: #a8d963;
+      box-shadow: var.$glow-portal-strong;
+      transform: translateY(-2px);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  // Botón Secundario: Contorno Cósmico
+  &--secondary {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var.$color-text-primary;
+    border-color: var.$color-border;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-color: var.$color-portal-cyan;
+      color: var.$color-portal-cyan;
+    }
+  }
+
+  // Botón de Favorito (Ícono corazón / estrella)
+  &--favorite {
+    width: 38px;
+    height: 38px;
+    padding: 0;
+    border-radius: var.$border-radius-full;
+    background: rgba(15, 17, 26, 0.7);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: var.$color-text-muted;
+    font-size: 1.2rem;
+    transition: var.$transition-default;
+
+    &:hover {
+      transform: scale(1.15);
+      color: var.$color-favorite-gold;
+    }
+
+    &.is-favorite {
+      color: var.$color-favorite-gold;
+      background: rgba(15, 17, 26, 0.85);
+      backdrop-filter: blur(8px);
+      border: 1.5px solid var.$color-favorite-gold;
+      box-shadow:
+        0 0 0 1.5px rgba(0, 0, 0, 0.75),
+        0 4px 12px rgba(0, 0, 0, 0.5);
+      filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.4));
+
+      &:hover {
+        transform: scale(1.15);
+        box-shadow:
+          0 0 0 1.5px rgba(0, 0, 0, 0.85),
+          0 0 14px rgba(255, 193, 7, 0.45);
+      }
+    }
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
