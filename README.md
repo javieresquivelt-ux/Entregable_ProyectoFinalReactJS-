@@ -5,12 +5,6 @@
 
 ---
 
-## 🖥️ Demo
-
-🔗 **[https://tu-usuario.github.io/tu-repo/](https://tu-usuario.github.io/tu-repo/)** — _reemplaza `tu-usuario`/`tu-repo` por tu URL real antes de entregar._
-
----
-
 ## 🎯 Objetivos
 
 Este proyecto pone en práctica, sobre una aplicación real que consume una API REST pública, los conceptos centrales del módulo de ReactJS:
@@ -122,14 +116,6 @@ ProyectoFinal_ReactJS/
         └── components/            # _buttons, _cards, _loader, _modal, _pagination
 ```
 
-> **Archivos excluidos del control de versiones (`.gitignore`):**
-> - `/instruction/` — material, enunciados y proyecto de referencia del curso.
-> - `agent.md`, `task.md`, `memory.md` — documentación interna del proceso de desarrollo (Harness Engineering).
->
-> Permanecen en el entorno local para el seguimiento del trabajo, pero **no se publican** en el repositorio.
-
----
-
 ## 🧩 Secciones del Sitio (y sus características CSS)
 
 ### 1. Header / Hero — `.app-header`
@@ -223,73 +209,6 @@ Tamaños destacados (base `html` = **16px**, enfoque *mobile-first* con escalado
 
 ---
 
-## 🚀 Instalación y Uso
-
-### Requisitos
-- **Node.js 20+** y **npm**.
-
-### Pasos
-
-```bash
-# 1. Clona el repositorio
-git clone https://github.com/<tu-usuario>/<tu-repo>.git
-cd <tu-repo>
-
-# 2. Instala las dependencias
-npm install
-
-# 3. Inicia el servidor de desarrollo
-npm run dev
-# → Abre http://localhost:5173 en tu navegador
-
-# 4. Verifica el linting
-npm run lint
-
-# 5. Genera el bundle de producción
-npm run build
-
-# 6. Previsualiza el bundle de producción
-npm run preview
-```
-
-### Scripts disponibles
-
-| Comando | Descripción |
-|---|---|
-| `npm run dev` | Servidor de desarrollo con HMR. |
-| `npm run build` | Bundle optimizado para producción en `dist/`. |
-| `npm run lint` | Análisis estático con ESLint (0 errores esperados). |
-| `npm run preview` | Previsualiza el bundle de producción localmente. |
-
----
-
-## 🌐 Despliegue en GitHub Pages
-
-El proyecto incluye CI/CD automatizado en `.github/workflows/deploy.yml`.
-
-1. **Habilita GitHub Pages:** `Settings → Pages → Source → GitHub Actions`.
-2. **Haz push a `main`:** el workflow ejecuta `npm ci` → `npm run lint` → `npm run build` y publica `dist/`.
-3. También puedes lanzarlo manualmente: `Actions → Deploy to GitHub Pages → Run workflow`.
-
-> **Nota:** `vite.config.js` define `base: './'`, por lo que `dist/index.html` usa rutas relativas (`./assets/...`) y funciona bajo cualquier subdirectorio de GitHub Pages.
-
----
-
-## ♿ Accesibilidad
-
-Implementación de **WCAG 2.1 nivel AA**:
-
-| Criterio | Implementación |
-|---|---|
-| WCAG 2.4.1 Bypass Blocks | `.skip-link` que salta a `<main id="main-content" tabindex="-1">`. |
-| WCAG 2.4.7 Focus Visible | `:focus-visible` con contorno cian de alto contraste (`_reset.scss`). |
-| WCAG 4.1.2 Name, Role, Value | Patrón WAI-ARIA Tabs: `role="tablist/tab/tabpanel"`, `aria-selected`, `aria-controls`, `aria-labelledby`, roving tabindex y navegación con flechas. |
-| WCAG 1.3.1 Info and Relationships | `<header>`, `<main>`, `<nav>`, `<section>`, `<dialog>` y `<article>` semánticos. |
-| WCAG 4.1.3 Status Messages | `aria-live="polite"` anuncia el conteo de resultados; `aria-busy` durante la carga. |
-| WCAG 1.1.1 Non-text Content | `alt` en imágenes; `aria-hidden` en íconos decorativos; `aria-label` en botones de ícono. |
-| Focus trap en modal | `<dialog>` nativo con `showModal()` atrapa el foco automáticamente. |
-
----
 
 ## 🧠 Aprendizajes Clave
 
@@ -306,8 +225,7 @@ Implementación de **WCAG 2.1 nivel AA**:
 
 ---
 
-## 🎓 Créditos
-
-- **Estudiante:** Proyecto final del curso **ReactJS — Conquer Blocks**.
-- **Datos:** [The Rick and Morty API](https://rickandmortyapi.com/) — Axel Fuhrmann (MIT License).
-- **Diseño base:** Sistema de estilos **Sass 7-1** heredado del proyecto anterior en Vanilla JS, migrado a componentes React.
+## 👨‍💻 Autor y Créditos
+- **Estudiante / Desarrollador:** Javier Esquivel
+- **Formación:** Master en Desarrollo Web / ReactJS — Conquer Blocks
+- **API Oficial:** [The Rick and Morty API](https://rickandmortyapi.com/) por Axel Fuhrmann
