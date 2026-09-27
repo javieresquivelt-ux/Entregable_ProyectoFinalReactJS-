@@ -155,60 +155,6 @@ Grilla donde se "categorizan" los personajes en tarjetas.
 
 ---
 
-## 🎨 Paleta de Colores
-
-Definida en `src/scss/abstracts/_variables.scss`:
-
-| Token | Hex / Valor | Propósito |
-|---|---|---|
-| `$color-bg-deep` | `#0f111a` | Fondo cósmico profundo (espacio exterior). |
-| `$color-bg-surface` | `#181b26` | Superficie de paneles y controles. |
-| `$color-bg-card` | `#202433` | Fondo de tarjetas y del modal. |
-| `$color-bg-card-hover` | `#272c3d` | Estado hover de tarjetas/contenedores. |
-| `$color-portal-green` | `#97ce4c` | Acento principal (portal de Rick); botones primarios y pestaña activa. |
-| `$color-portal-glow` | `#39ff14` | Brillo fluorescente para estados activos. |
-| `$color-portal-cyan` | `#00b5cc` | Acento secundario, foco (`:focus-visible`) y badges de episodios. |
-| `$color-portal-purple` | `#9d4edd` | Detalles "dimensionales" del loader. |
-| `$color-status-alive` | `#55cc44` | Punto de estado **Vivo**. |
-| `$color-status-dead` | `#d63d2e` | Punto de estado **Muerto** y errores. |
-| `$color-status-unknown` | `#9e9e9e` | Punto de estado **Desconocido**. |
-| `$color-favorite-gold` | `#ffc107` | Estrella de favoritos (dorado). |
-| `$color-text-primary` | `#f5f6fa` | Texto principal de alto contraste. |
-| `$color-text-secondary` | `#9aa0a6` | Metadata (especie, origen, ubicación). |
-| `$color-text-muted` | `#6b7280` | Texto atenuado y placeholders. |
-| `$color-border` | `rgba(255,255,255,.08)` | Bordes sutiles de elementos elevados. |
-
-**Sombras y glows:** `$shadow-sm/md/lg`, `$glow-portal`, `$glow-portal-strong`, `$glow-cyan`.
-**Radios:** `$border-radius-sm` (6px), `-md` (12px), `-lg` (18px), `-full` (9999px).
-
----
-
-## 🔤 Tipografías y Tamaños
-
-Cargadas desde Google Fonts en `index.html` y expuestas como tokens en `_variables.scss`:
-
-| Token | Fuente | Uso |
-|---|---|---|
-| `$font-family-base` | **Inter** (300–700) | Cuerpo de texto, controles, tarjetas y metadata. |
-| `$font-family-display` | **Orbitron** (600–900) | Títulos con estética Sci-Fi (header, títulos de sección). |
-
-Tamaños destacados (base `html` = **16px**, enfoque *mobile-first* con escalado por breakpoint):
-
-| Elemento | Tamaño |
-|---|---|
-| Título del header (`.app-header__title`) | `2.25rem` → **`3.25rem`** en tablet |
-| Subtítulo del header | `1rem` → `1.15rem` en tablet |
-| Badge del header | `0.75rem` (mayúsculas, `letter-spacing`) |
-| Nombre en la tarjeta (`.character-card__name`) | `1.25rem` |
-| Estado/metadata de tarjeta | `0.85rem` (labels `0.75rem`) |
-| Título del modal (`h2`) | `1.75rem` |
-| Título de sección del modal | `0.95rem` (mayúsculas) |
-| Badge de episodio | `0.75rem` |
-| Info de paginación | `0.9rem` |
-| Botones e input de búsqueda | `0.9rem` / `0.95rem` |
-
----
-
 
 ## 🧠 Aprendizajes Clave
 
@@ -221,7 +167,6 @@ Tamaños destacados (base `html` = **16px**, enfoque *mobile-first* con escalado
 7. **Robustez defensiva:** el 404 de la API se interpreta como "sin resultados" (no como error), y `localStorage` se accede siempre dentro de `try/catch`.
 8. **Reglas modernas de React 19:** el plugin de hooks v7 obliga a no resetear estado dentro de efectos; aprender el patrón "ajustar estado durante el render" y los *updaters* funcionales mejoró la calidad del código.
 9. **Accesibilidad desde el diseño:** ARIA, foco visible y regiones vivas se integraron fase a fase, no como parche final.
-10. **Sass 7-1 y despliegue:** la arquitectura modular con `@use`/`@forward` y `base: './'` en Vite hicieron el proyecto mantenible y portable a GitHub Pages.
 
 ---
 
