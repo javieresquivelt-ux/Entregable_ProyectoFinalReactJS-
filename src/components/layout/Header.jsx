@@ -24,7 +24,7 @@ export function Header() {
       <div className="container">
         {/* Badge superior: refuerza la identidad tecnológica del proyecto */}
         <span className="app-header__badge">
-          ⚡ ReactJS Explorer • Multiverse Edition
+          Conquer Blocks - Proyecto Final ReactJS
         </span>
 
         {/* Título principal: un único <h1> por página por accesibilidad (WCAG) */}
@@ -32,7 +32,7 @@ export function Header() {
 
         {/* Subtítulo descriptivo del propósito de la app */}
         <p className="app-header__subtitle">
-          Explora dimensiones, conoce personajes y descubre episodios del multiverso C-137.
+          Explora personajes, dimensiones y episodios del multiverso de Rick and Morty en tiempo real.
         </p>
       </div>
     </header>
